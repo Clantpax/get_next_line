@@ -84,9 +84,9 @@ char	*get_next_line(int fd)
 	i = read(fd, a, BUFFER_SIZE);
 	if (i == -1 || (i == 0 && !leftover))
 	{
-		free(str);
 		free(t);
-		return (NULL);
+		free(leftover);
+		return (str);
 	}
 	a[i] = 0;
 	str = output_str(fd, a);
@@ -101,7 +101,7 @@ char	*get_next_line(int fd)
 	free(t);
 	return (out);
 }
-/* 
+
 int main()
 {
 	int fd;
@@ -117,4 +117,4 @@ int main()
 		i++;
 		free(str);
 	}
-} */
+}
