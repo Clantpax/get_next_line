@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 	free(t);
 	return (out);
 }
-/* 
+
 int main()
 {
 	int fd;
@@ -116,4 +116,4 @@ int main()
 		i++;
 		free(str);
 	}
-} */
+}
