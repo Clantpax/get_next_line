@@ -87,6 +87,7 @@ char	*get_next_line(int fd)
 		free(t);
 		free(leftover);
 		free(str);
+		printf("0\n");
 		return (0);
 	}
 	a[i] = 0;
@@ -102,7 +103,7 @@ char	*get_next_line(int fd)
 	free(t);
 	return (out);
 }
-/* 
+
 int main()
 {
 	int fd;
@@ -118,4 +119,4 @@ int main()
 		i++;
 		free(str);
 	}
-} */
+}

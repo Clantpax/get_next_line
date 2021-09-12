@@ -90,7 +90,10 @@ size_t	ft_strchr(char **s, char **str)
 
 	i = 0;
 	if (!(*s))
+	{
+		free(*str);
 		return (0);
+	}
 	while ((*s)[i] != 0)
 	{
 		if ((*s)[i] == '\n')
