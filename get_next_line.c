@@ -80,7 +80,11 @@ char	*get_next_line(int fd)
 		t = ft_strdup("\0");
 	i = read(fd, a, BUFFER_SIZE);
 	if (i == -1 || (i == 0 && !leftover))
+	{
+		free(str);
+		free(t);
 		return (NULL);
+	}
 	a[i] = 0;
 	str = output_str(fd, a, str);
 	if (!leftover & !t)
