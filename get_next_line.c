@@ -81,7 +81,6 @@ char	*get_next_line(int fd)
 	else
 		t = ft_strdup("\0");
 	i = read(fd, a, BUFFER_SIZE);
-	printf("%d\n",i);
 	if (i == -1 || (i == 0 && !leftover))
 	{
 		free(t);
@@ -101,7 +100,7 @@ char	*get_next_line(int fd)
 	free(t);
 	return (out);
 }
-/* 
+
 int main()
 {
 	int fd;
@@ -117,4 +116,4 @@ int main()
 		i++;
 		free(str);
 	}
-} */
+}
