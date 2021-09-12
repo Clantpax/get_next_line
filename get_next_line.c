@@ -65,7 +65,7 @@ char	*get_next_line(int fd)
 	static char	*leftover;
 	char		*t;
 
-	str = ft_strdup('\0');
+	str = ft_strdup("\0");
 	/* if (fd < 0 || fd > 1024 || BUFFER_SIZE < 1)
 		return (NULL); */
 	if (ft_strchr(&leftover, &str))
@@ -74,10 +74,10 @@ char	*get_next_line(int fd)
 	{
 		t = ft_strdup(leftover);
 		free(leftover);
-		leftover = ft_strdup('\0');
+		leftover = ft_strdup("\0");
 	}
 	else
-		t = ft_strdup('\0');
+		t = ft_strdup("\0");
 	i = read(fd, a, BUFFER_SIZE);
 	if (i == -1 || (i == 0 && !leftover))
 		return (NULL);
