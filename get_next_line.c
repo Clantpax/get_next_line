@@ -86,7 +86,8 @@ char	*get_next_line(int fd)
 	{
 		free(t);
 		free(leftover);
-		return (str);
+		free(str);
+		return (0);
 	}
 	a[i] = 0;
 	str = output_str(fd, a);
