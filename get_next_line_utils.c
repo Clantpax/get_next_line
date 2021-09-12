@@ -50,7 +50,7 @@ char	*ft_strdup(char *s)
 		return NULL;
 	while (s[i] != 0)
 		i++;
-	a = (char *)malloc(sizeof(char) * i + 1);
+	a = (char *)malloc(sizeof(char) * (i + 1));
 	if (!a)
 		return (0);
 	a[i] = 0;

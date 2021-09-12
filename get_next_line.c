@@ -25,11 +25,14 @@ void	carl(char *a, char **str)
 	i++;
 }
 
-char	*output_str(int fd, char *a, char *str)
+char	*output_str(int fd, char *a)
 {
 	int		i;
 	char	*t;
+	char	*str;
+	char	*z;
 
+	str = 0;
 	while (1)
 	{
 		i = 0;
@@ -39,9 +42,10 @@ char	*output_str(int fd, char *a, char *str)
 		{
 			t = malloc(sizeof(char) * (i + 2));
 			ft_strlcpy(t, a, i + 2);
-			str = ft_strjoin(str, t);
+			z = ft_strjoin(str, t);
 			free(t);
-			return (str);
+			free(str);
+			return (z);
 		}
 		else
 		{
@@ -64,10 +68,9 @@ char	*get_next_line(int fd)
 	char		*str;
 	static char	*leftover;
 	char		*t;
+	char		*out;
 
-	str = ft_strdup("\0");
-	/* if (fd < 0 || fd > 1024 || BUFFER_SIZE < 1)
-		return (NULL); */
+	str = NULL;
 	if (ft_strchr(&leftover, &str))
 		return (str);
 	else if (leftover)
@@ -86,16 +89,19 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	a[i] = 0;
-	str = output_str(fd, a, str);
+	str = output_str(fd, a);
 	if (!leftover & !t)
 	{
 		carl(a, &leftover);
 		return (str);
 	}
 	carl(a, &leftover);
-	return (ft_strjoin(t, str));
+	out = ft_strjoin(t, str);
+	free(str);
+	free(t);
+	return (out);
 }
-/* 
+
 int main()
 {
 	int fd;
@@ -104,11 +110,11 @@ int main()
 
 	fd = open("cheese.txt", O_RDWR);
 	i = 1;
-	while (i < 11)
+	while (i < 2)
 	{
 		str = get_next_line(fd);
 		printf("output %d = %s", i, str);
 		i++;
 		free(str);
 	}
-} */
+}
