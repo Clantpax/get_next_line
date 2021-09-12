@@ -16,7 +16,6 @@ void	carl(char *a, char **str)
 {
 	int	i;
 
-	*str = 0;
 	i = 0;
 	while (a[i] != '\n' && a[i] != 0)
 		i++;
@@ -77,17 +76,16 @@ char	*get_next_line(int fd)
 	{
 		t = ft_strdup(leftover);
 		free(leftover);
-		leftover = ft_strdup("\0");
+		leftover = 0;
 	}
 	else
 		t = ft_strdup("\0");
 	i = read(fd, a, BUFFER_SIZE);
+	printf("%d\n",i);
 	if (i == -1 || (i == 0 && !leftover))
 	{
 		free(t);
-		free(leftover);
 		free(str);
-		printf("0\n");
 		return (0);
 	}
 	a[i] = 0;
@@ -112,7 +110,7 @@ int main()
 
 	fd = open("cheese.txt", O_RDWR);
 	i = 1;
-	while (i < 2)
+	while (i < 3)
 	{
 		str = get_next_line(fd);
 		printf("output %d = %s", i, str);
