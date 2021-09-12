@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 	free(t);
 	return (out);
 }
-
+/* 
 int main()
 {
 	int fd;
@@ -109,11 +109,11 @@ int main()
 
 	fd = open("cheese.txt", O_RDWR);
 	i = 1;
-	while (i < 3)
+	while (i < 4)
 	{
 		str = get_next_line(fd);
 		printf("output %d = %s", i, str);
 		i++;
 		free(str);
 	}
-}
+} */
