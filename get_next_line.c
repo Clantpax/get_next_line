@@ -91,7 +91,7 @@ char	*get_next_line(int fd)
 	carl(a, &leftover);
 	return (ft_strjoin(t, str));
 }
- 
+/* 
 int main()
 {
 	int fd;
@@ -107,4 +107,4 @@ int main()
 		i++;
 		free(str);
 	}
-}
+} */
